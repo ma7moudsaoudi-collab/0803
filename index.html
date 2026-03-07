@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>To my DARLING</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-orb orb-3" aria-hidden="true"></div>
+  <div id="particles" class="particles" aria-hidden="true"></div>
+
+  <!--
+    Edit these helper strings directly in HTML if you want to change neutral feedback,
+    popup defaults, or music messages without touching JavaScript logic.
+  -->
+  <div
+    id="text-bank"
+    hidden
+    data-unlocked-message="Mahmoud-Locked hhh (hope you get the ref)."
+    data-neutral-message="Cmooon fi9i m3ana it is eaaasy."
+    data-music-blocked-message="Tap the music button to start the tune."
+    data-easter-egg-title="Hmm yaaaah"
+  ></div>
+
+  <audio id="bg-music" preload="auto" loop>
+    <source src="assets/tune.wav" type="audio/wav" />
+  </audio>
+
+  <main class="app-shell">
+    <section id="screen-lock" class="screen active" aria-labelledby="question-title">
+      <div class="card hero-card">
+        <span class="pill">7e9a kayn 3id dial lmera</span>
+        <!-- Editable visible text starts here -->
+        <h1 id="question-title" class="hero-title">Answer this to open your surprise</h1>
+        <p class="hero-copy">I have trust in you write whatever (or whomever) comes to mind hhh.</p>
+        <p class="question-text">Who are you to me?</p>
+        <!-- Editable visible text ends here -->
+
+        <form id="unlock-form" class="unlock-form" autocomplete="off">
+          <label class="sr-only" for="answer-input">Your answer</label>
+          <input id="answer-input" class="answer-input" type="text" placeholder="Type your answer here" maxlength="80" />
+          <button id="unlock-btn" class="btn btn-gold" type="submit">Open the secret</button>
+          <p id="unlock-feedback" class="feedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="screen-puzzle" class="screen" aria-labelledby="puzzle-heading">
+      <div class="card puzzle-card">
+        <div class="top-row">
+          <div>
+            <span class="pill">The Puzzle</span>
+            <!-- Editable visible text -->
+            <h2 id="puzzle-heading" class="section-title">Put our picture back together</h2>
+            <p class="section-copy">Tap one tile, then tap another tile to swap them. Finish it for the final reveal. YOU CAN DO IT</p>
+          </div>
+          <button id="music-toggle" class="icon-btn" type="button" aria-pressed="false" title="Toggle music">♪</button>
+        </div>
+
+        <div class="status-grid">
+          <div class="status-card">
+            <span class="status-label">Correct tiles</span>
+            <strong id="correct-count">0 / 36</strong>
+          </div>
+          <div class="status-card">
+            <span class="status-label">Progress</span>
+            <strong id="percent-text">0%</strong>
+          </div>
+        </div>
+
+        <div class="progress-bar" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+
+        <div id="puzzle-grid" class="puzzle-grid" aria-label="Puzzle board"></div>
+
+        <div class="control-row">
+          <button id="preview-btn" class="btn btn-ghost" type="button">Blurred preview</button>
+          <button id="reshuffle-btn" class="btn btn-ghost" type="button">Reshuffle</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-reveal" class="screen" aria-labelledby="reveal-heading">
+      <div class="card reveal-card">
+        <span class="pill">YEEEEEY</span>
+        <!-- Editable visible text -->
+        <h2 id="reveal-heading" class="section-title">You solved it, i didnt for a moment doubt that you would manage to do it</h2>
+        <p class="section-copy">Hope it wasnt boring and you enjoyed the little challenge lol hhh i will run out of ideas in the future.</p>
+        <!-- Editable visible text ends here -->
+
+        <div class="photo-frame">
+          <img id="final-photo" src="assets/our-photo.jpg" alt="Final revealed photo" />
+        </div>
+
+        <!-- Editable visible text -->
+        <p class="final-message">
+          Without further waisting time you did enough ...
+        </p>
+        <!-- Editable visible text ends here -->
+
+        <div class="control-row">
+          <button id="letter-btn" class="btn btn-gold" type="button">Read the letter</button>
+          <button id="play-again-btn" class="btn btn-ghost" type="button">Play again</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="popup-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="card modal-card">
+      <button class="modal-close" type="button" data-close="popup">×</button>
+      <!-- Editable visible text -->
+      <span class="pill">A little answer back</span>
+      <h3 id="popup-title" class="section-title">Hmm...</h3>
+      <!-- Editable visible text ends here -->
+      <p id="popup-message" class="section-copy"></p>
+      <button class="btn btn-gold" type="button" data-close="popup">Close</button>
+    </div>
+  </div>
+
+  <div id="preview-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="card modal-card preview-card">
+      <button class="modal-close" type="button" data-close="preview">×</button>
+      <!-- Editable visible text -->
+      <span class="pill">Just a hint</span>
+      <h3 class="section-title">Only a blurred look</h3>
+      <p class="section-copy">Enough to guide you, not enough to spoil the reveal.</p>
+      <!-- Editable visible text ends here -->
+      <img id="preview-image" class="preview-image" src="assets/our-photo.jpg" alt="Blurred preview of the full image" />
+    </div>
+  </div>
+
+  <div id="letter-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="card modal-card letter-card">
+      <button class="modal-close" type="button" data-close="letter">×</button>
+      <!-- Editable visible text -->
+      <span class="pill">08/03/2026</span>
+      <h3 class="section-title">For the woman behind the answer</h3>
+      <div class="letter-text">
+		Hey you,
+        <br /><br />
+        In this special day, i want you to know how special you are to me. I dont think that you need me to write a letter to prove it but here i am like that hhhh.
+        I guess the world now is so evolved that we returned to send letters to our loved ones. I cant understate how much i wish we were closer and that i can say this to you face to face (you know i wont hhh because you would make me look stupid).
+        If this little surprise made you smile, then it already did what I hoped it would do.
+        <br /><br />
+        Last thing but not least, I LOVE YOU. and let this be a reminder that every opportunity is a chance to celebrate youuu.
+		<br /><br />
+		Happy womens day to the most cherished of them all <3
+		<br /><br />
+		Your one and only (i hope hhh)
+      </div>
+      <!-- Editable visible text ends here -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
