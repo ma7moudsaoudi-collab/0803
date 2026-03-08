@@ -93,8 +93,8 @@ const state = {
 ========================================================= */
 function init() {
   document.documentElement.style.setProperty('--preview-blur', `${CONFIG.PREVIEW_BLUR_PX}px`);
-  previewImage.src = CONFIG.PHOTO_PATH;
-  finalPhoto.src = CONFIG.PHOTO_PATH;
+  previewImage.src = SELECTED_PHOTO;
+  finalPhoto.src = SELECTED_PHOTO;
   if (bgMusic.querySelector('source')) {
     bgMusic.querySelector('source').src = CONFIG.MUSIC_PATH;
     bgMusic.load();
@@ -310,7 +310,7 @@ function swapTiles(a, b) {
 function applyTileImage(element, tileId) {
   const row = Math.floor(tileId / CONFIG.GRID_SIZE);
   const col = tileId % CONFIG.GRID_SIZE;
-  element.style.backgroundImage = `url("${CONFIG.PHOTO_PATH}")`;
+  element.style.backgroundImage = `url("${SELECTED_PHOTO}")`;
   element.style.backgroundPosition = `${(col / (CONFIG.GRID_SIZE - 1)) * 100}% ${(row / (CONFIG.GRID_SIZE - 1)) * 100}%`;
 }
 
