@@ -6,9 +6,14 @@
 const CONFIG = {
   TRUE_ANSWER: 'my Ran',
   GRID_SIZE: 6,
-  PHOTO_PATH: 'assets/our-photo.jpg',
-  MUSIC_PATH: 'assets/tune.wav',
-  PREVIEW_BLUR_PX: 12,
+  PHOTO_PATHS: [
+    'assets/our-photo.jpg',
+	'assets/our-photo2.jpg',
+    'assets/our-photo2.jpg',
+    'assets/our-photo3.jpg',
+  ],  
+  MUSIC_PATH: 'https://cdn.pixabay.com/audio/2026/02/19/audio_e36c7bb28d.mp3',
+  PREVIEW_BLUR_PX: 6,
   IGNORE_CASE: true,
   TRIM_SPACES: true,
   EASTER_EGGS: {
@@ -31,9 +36,14 @@ const CONFIG = {
 	wife: 'inchaellah',
 	'my wife': 'inchaelllaah',
 	'my darling': 'that is true but no be more creative',
+	  whatever: 'hhhhhh no',
+	  whomever: 'no but try it',
+	  ran: 'close but no cigar',
+	  chihab: '3ziz 3lik nti machi ana',
   }
 };
 
+const SELECTED_PHOTO = CONFIG.PHOTO_PATHS[Math.floor(Math.random() * CONFIG.PHOTO_PATHS.length)];
 /* =========================================================
    DOM REFERENCES
 ========================================================= */
