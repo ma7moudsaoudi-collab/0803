@@ -43,7 +43,7 @@ const CONFIG = {
   }
 };
 
-const SELECTED_PHOTO = CONFIG.PHOTO_PATHS[Math.floor(Math.random() * CONFIG.PHOTO_PATHS.length)];
+const SELECTED_PHOTO = 'assets/our-photo2.jpg';
 /* =========================================================
    DOM REFERENCES
 ========================================================= */
