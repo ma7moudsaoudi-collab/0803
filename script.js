@@ -8,7 +8,7 @@ const CONFIG = {
   GRID_SIZE: 6,
   PHOTO_PATHS: [
     'assets/our-photo.jpg',
-	'assets/our-photo2.jpg',
+	'assets/our-photo1.jpg',
     'assets/our-photo2.jpg',
     'assets/our-photo3.jpg',
   ],  
