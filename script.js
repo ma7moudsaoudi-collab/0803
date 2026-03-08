@@ -43,7 +43,7 @@ const CONFIG = {
   }
 };
 
-const SELECTED_PHOTO = 'assets/our-photo2.jpg';
+const SELECTED_PHOTO = 'assets/our-photo.jpg';
 /* =========================================================
    DOM REFERENCES
 ========================================================= */
