@@ -14,7 +14,7 @@ const CONFIG = {
 	'assets/our-photo4.jpg',
     'assets/our-photo5.jpg',
     'assets/our-photo6.jpg',
-	'assets/our-photo6.jpg',
+	'assets/our-photo7.jpg',
   ],  
   MUSIC_PATH: 'https://cdn.pixabay.com/audio/2026/02/19/audio_e36c7bb28d.mp3',
   PREVIEW_BLUR_PX: 6,
