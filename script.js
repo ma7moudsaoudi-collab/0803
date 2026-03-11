@@ -14,6 +14,7 @@ const CONFIG = {
 	'assets/our-photo4.jpg',
     'assets/our-photo5.jpg',
     'assets/our-photo6.jpg',
+	'assets/our-photo6.jpg',
   ],  
   MUSIC_PATH: 'https://cdn.pixabay.com/audio/2026/02/19/audio_e36c7bb28d.mp3',
   PREVIEW_BLUR_PX: 6,
@@ -33,7 +34,7 @@ const CONFIG = {
 	bassa: 'the origin story',
 	oumaima: 'like a sister',
 	issam: 'KHOUYA ISSAM',
-	soumiya: 'li fahma l7ayat',
+	soumiya: 'hiya li fahma l7ayat',
 	noura: 'naaadia hhh',
 	amira: 'the princess',
 	wife: 'inchaellah',
@@ -41,8 +42,15 @@ const CONFIG = {
 	'my darling': 'that is true but no be more creative',
 	  whatever: 'hhhhhh no',
 	  whomever: 'no but try it',
-	  ran: 'close but no cigar',
+	  ran: 'close but you can be more specific',
 	  chihab: '3ziz 3lik nti machi ana',
+	  love: 'not that easy',
+	  gf: 'try again',
+	  girlfriend: 'try again..',
+	  gift: 'stitch',
+	  stitch: 'next gift will be...',
+	  'next gift': 'a nice watch dont tell anyone',
+	  nora: 'naadia hh',
   }
 };
 
